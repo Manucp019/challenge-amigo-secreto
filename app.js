@@ -3,12 +3,26 @@ const amigos = [];
 function agregarAmigo() {
     const input = document.getElementById('amigo');
     const nombre = input.value.trim();
-    if (nombre !== '') {
-        amigos.push(nombre);
-        mostrarLista();
+
+    // Validación: solo letras y espacios
+    const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+
+    if (nombre === '') {
+        alert('Ingrese un nombre.');
+        return;
+    }
+
+    if (!soloLetras.test(nombre)) {
+        alert('El nombre solo puede contener letras y espacios.');
         input.value = '';
         input.focus();
+        return;
     }
+
+    amigos.push(nombre);
+    mostrarLista();
+    input.value = '';
+    input.focus();
 }
 
 function mostrarLista() {
@@ -27,11 +41,11 @@ function sortearAmigo() {
         resultado.innerHTML = '<li>No hay amigos para sortear.</li>';
         return;
     }
-    // Elegir un índice aleatorio
+
     const indiceAleatorio = Math.floor(Math.random() * amigos.length);
     const amigoSorteado = amigos[indiceAleatorio];
-
-    // Mostrar el resultado en la lista de resultados
-    resultado.innerHTML = `<li>El amigo sorteado es: ${amigoSorteado}</li>`;
+    resultado.innerHTML = `<li>${amigoSorteado}</li>`;
 }
+
+
 
