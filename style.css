@@ -1,4 +1,3 @@
-
 :root {
     --color-primary: #4B69FD;
     --color-secondary: #FFF9EB;
@@ -77,20 +76,24 @@ body {
     justify-content: center;
     width: 100%;
     max-width: 600px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .input-name {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     border: 2px solid #000;
     border-radius: 25px 0 0 25px;
     font-size: 16px;
 }
 
 .button-container {
-    width: 300px;
+    display: flex;
+    gap: 20px;           /* espacio entre botones */
     justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
 }
 
 /* Estilos de entrada de texto */
@@ -105,25 +108,62 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos de botón */
-button {
-    padding: 15px 30px;
-    font-family: "Inter", sans-serif;
+/* Estilos de botones (comunes) */
+.button-draw, .button-reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;               /* mismo ancho para ambos */
+    padding: 20px;
     font-size: 16px;
-    border: 2px solid #000;
     border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     cursor: pointer;
 }
 
-.button-add {
-    background-color: var(--color-tertiary);
-    color: var(--color-text);
-    border-radius: 0 25px 25px 0;
+/* Diferentes colores y hover */
+.button-draw {
+    background-color: var(--color-button);
+    color: var(--color-white);
 }
 
+.button-draw:hover {
+    background-color: var(--color-button-hover);
+}
+
+.button-reset {
+    background-color: #FF5C5C;
+    color: var(--color-white);
+}
+
+.button-reset:hover {
+    background-color: #E04C4C;
+}
+
+/* Imagenes en botones */
+.button-draw img, .button-reset img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* Botones de añadir */
+.button-add {
+    flex: 0 0 150px;        /* ancho fijo pero proporcionado */
+    padding: 10px 15px;     /* altura y espacio interno */
+    background-color: var(--color-tertiary);
+    color: var(--color-text);
+    border-radius: 0 25px 25px 0; /* mantiene bordes redondeados al lado del input */
+    font-size: 16px;
+    border: 2px solid #000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+
 .button-add:hover {
-    background-color: #a1a1a1;
+    background-color: #49af2f;
 }
 
 /* Listas */
@@ -143,21 +183,3 @@ ul {
     text-align: center;
 }
 
-/* Botón de sortear título */
-.button-draw {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 10px 40px;
-    color: var(--color-white);
-    background-color: var(--color-button);
-    font-size: 16px;
-}
-
-.button-draw img {
-    margin-right: 40px;
-}
-
-.button-draw:hover {
-    background-color: var(--color-button-hover);
-}
